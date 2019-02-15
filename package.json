@@ -3,21 +3,20 @@
   "version": "1.0.0",
   "description": "package-description",
   "license": "MIT",
-  "preferGlobal": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": ">=6.14.4",
-    "npm": ">=3.10.10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/virgenherrera/libraryName"
+    "node": ">=8.15.0",
+    "npm": ">=6.4.1"
   },
   "keywords": [
     "typescript",
     "node"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virgenherrera/libraryName"
+  },
   "author": "Hugo Virgen",
   "contributors": [
     {
@@ -32,8 +31,8 @@
   },
   "scripts": {
     "test": "nyc mocha",
-    "prepublish": "npm run build",
-    "build": "npm run cleanup && npm run test && npm run tsc",
+    "prepublishOnly": "npm run build",
+    "build": "npm run cleanup && npm audit && npm run test && npm run tsc",
     "cleanup": "rimraf dist .nyc_output coverage",
     "tslint": "./node_modules/.bin/tslint -c ./tslint.json -p ./tsconfig.json",
     "tsc": "./node_modules/.bin/tsc",
